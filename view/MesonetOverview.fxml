@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dg.CS2334.Mesonet.view.MesonetOverviewController">
+   <children>
+      <BorderPane prefHeight="600.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <right>
+            <TableView fx:id="statTable" prefHeight="540.0" prefWidth="761.0" styleClass="mesonet-label" BorderPane.alignment="CENTER">
+              <columns>
+                  <TableColumn fx:id="stationColumn" prefWidth="93.0" text="Station" />
+                <TableColumn fx:id="parameterColumn" prefWidth="138.0" text="Parameter" />
+                <TableColumn fx:id="statisticsColumn" prefWidth="125.0" text="Statistic" />
+                  <TableColumn fx:id="valueColumn" prefWidth="88.0" text="Value" />
+                  <TableColumn fx:id="reportingColumn" prefWidth="134.0" text="Reporting" />
+                  <TableColumn fx:id="dateColumn" prefWidth="165.0" text="Date" />
+              </columns>
+            </TableView>
+         </right>
+         <center>
+            <VBox prefHeight="540.0" prefWidth="123.0" spacing="57.0" styleClass="button-box" BorderPane.alignment="CENTER">
+               <children>
+                  <CheckBox fx:id="tair" mnemonicParsing="false" text="Temp" />
+                  <CheckBox fx:id="ta9m" mnemonicParsing="false" text="Temp[9m]" />
+                  <CheckBox fx:id="srad" mnemonicParsing="false" text="Radiation" />
+                  <CheckBox fx:id="wspd" mnemonicParsing="false" text="Wind" />
+                  <CheckBox fx:id="pres" mnemonicParsing="false" text="Pressure" />
+                  <CheckBox fx:id="rain" mnemonicParsing="false" text="Rainfall" />
+               </children>
+               <padding>
+                  <Insets left="5.0" top="20.0" />
+               </padding></VBox>
+         </center>
+         <left>
+            <VBox prefHeight="540.0" prefWidth="90.0" spacing="100.0" styleClass="button-box" BorderPane.alignment="CENTER">
+               <children>
+                  <RadioButton fx:id="Maximum" mnemonicParsing="false" text="Max">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="statButtons" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="Average" mnemonicParsing="false" text="Avg" toggleGroup="$statButtons" />
+                  <RadioButton fx:id="Minimum" mnemonicParsing="false" text="Min" toggleGroup="$statButtons" />
+               </children>
+               <padding>
+                  <Insets left="3.0" top="80.0" />
+               </padding></VBox>
+         </left>
+         <top>
+            <Label prefWidth="1000.0" styleClass="mesonet-label" text="Mesonet - We don't set records, we report them!" BorderPane.alignment="CENTER">
+               <padding>
+                  <Insets left="320.0" />
+               </padding></Label>
+         </top>
+         <bottom>
+            <HBox alignment="CENTER" spacing="5.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button alignment="BOTTOM_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleCalculate" text="Calculate">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#handleExit" text="Exit" />
+               </children>
+               <padding>
+                  <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
+               </padding>
+            </HBox>
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>
